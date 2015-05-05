@@ -31,7 +31,7 @@ DUMPED_DB_PATH="$TEMPORAL_WORKING_PATH/$DB_NAME.sql_$DATE_TIME"
 
 echo -e "\nMaking backup of db: $DB_NAME\n"
 ssh $SLAVE "mysqldump -u $SLAVE_USER -p$SLAVE_PASS $DB_NAME > $DUMPED_DB_PATH"
-echo "We make a backup of your database (DB_NAME) for security razon on $DUMPED_DB_PATH"
+echo "We make a backup of your database (DB_NAME) on $DUMPED_DB_PATH"
 
 echo -e "\nStoping SLAVE ($SLAVE)\n"
 ssh $SLAVE "mysql -u $SLAVE_USER -p$SLAVE_PASS -e 'STOP SLAVE;'"
